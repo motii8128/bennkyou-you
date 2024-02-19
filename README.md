@@ -128,7 +128,7 @@ void loop() {
 
 ## 成功映像
 
-
+設定からESP32が出してるWi-Fi、このコードだと「TestServer」に接続する
 
 https://github.com/motii8128/bennkyou-you/assets/108280115/60422048-7137-48c3-bf58-25ccbb914692
 

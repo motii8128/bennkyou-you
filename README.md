@@ -70,17 +70,22 @@ fn main() {
 
 // コード全体で使う変数の宣言
 // WiFiの名前の宣言
+
 const char* ssid = "TestServer";
 // WiFiのパスワードを設定
+
 const char* pass = "test10000";
 // ポートを指定
+
 const uint16_t port = 10000;
 // サーバーのアドレス等を定数(constant)として設定する
+
 const IPAddress ip(192, 168, 4, 1);
 const IPAddress gateway(192, 168, 4, 1);
 const IPAddress subnet(255, 255, 255, 0);
 
 // 通信相手のアドレス、ポート
+
 const IPAddress remote_ip(192, 168, 4, 2);
 const uint16_t remote_port = 8080;
 

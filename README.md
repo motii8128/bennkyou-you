@@ -5,17 +5,25 @@ ESP32をサーバーに通信するプログラムのデモ
 
 ## Rust（手元のPC側）
 ```rs
+// ここでの「use」はC言語でいう「#include」。使いたい何かを外部から持ってくる
+// UDP通信するためのクレート（ライブラリみたいなもん）
 use std::net::UdpSocket;
+// 標準ライブラリ内にあるtime内にあるDurationという時間を指定するためのライブラリ
 use std::time::Duration;
 
+// メイン関数の宣言
 fn main() {
+    // C言語の「printf」と同じ
     println!("Start UDP");
-    // 指定したアドレスとポートでスタート
+
+    // 下ではUdpSocketというクレート内にあるbind関数を実行。引数にはアドレスとポート。
+    // bind関数はResultを返す。そしてResultはその関数の実行が成功したか、失敗したかの両方を含む
+    // 最後についてる「unwrap」は私の解釈的には成功した場合の想定で進めるときにつけてます。
     let udp = UdpSocket::bind("192.168.4.2:8080").unwrap();
 
-    // 必要な変数の用意
+    // 数をカウントする変数の用意「mut」をつけることでミュータブル＝可変の変数になる。
     let mut count = 0;
-    // バッファを用意
+    // バッファ（読み取った内容を保存する文字配列）を用意
     let mut buf = [0_u8;256];
     println!("Start Loop");
     loop {
